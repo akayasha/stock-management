@@ -1,57 +1,43 @@
-# Stock Management System
+# Stock Management System  
 
-This is a Stock Management System built with Java and Spring Boot. It allows you to manage orders and items in a stock management context.
+A Spring Boot application for managing orders and items with RESTful APIs. The application supports CRUD operations, ensures data validation, and includes an embedded H2 database for easy setup.  
 
-## Features
+---
 
-- Create, update, delete, and fetch orders
-- Create, update, delete, and fetch items
-- Validation for order and item data
+## 🚀 Features  
+- Manage **Orders** and **Items** with intuitive APIs  
+- Built-in **data validation** using Jakarta Validation  
+- Embedded H2 database for a lightweight and fast setup  
+- Configurable and easy-to-use development environment  
 
-## Technologies Used
+---
 
-- Java
-- Spring Boot
-- Maven
-- JPA (Java Persistence API)
-- Hibernate
-- Jakarta Validation
+## 📋 Prerequisites  
+Before running the application, ensure the following are installed:  
+- **Java** 17 or later  
+- **Maven** 3.6 or later  
 
-## Getting Started
+---
 
-### Prerequisites
+## ⚙️ Configuration  
 
-- Java 17 or higher
-- Maven 3.6.0 or higher
-- A database (e.g., MySQL, PostgreSQL)
+### Database Setup  
+The application uses an **H2 database** by default. Configure the database in `src/main/resources/application.properties` as needed:  
 
-Configure the database in src/main/resources/application.properties:  
-spring.datasource.url=jdbc:mysql://localhost:3306/your_database
-spring.datasource.username=your_username
-spring.datasource.password=your_password
+```properties
+spring.application.name=stockmanagement
+
+# H2 Database Configuration
+spring.datasource.url=jdbc:h2:file:C:/Users/akaya/test;AUTO_SERVER=TRUE
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=password
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+# Hibernate Configuration
 spring.jpa.hibernate.ddl-auto=update
-Build the project:  
-mvn clean install
-Run the application:  
-mvn spring-boot:run
-API Endpoints
-Orders
-GET /api/orders: Fetch all orders
-POST /api/orders: Create a new order
-PUT /api/orders/{id}: Update an existing order
-GET /api/orders/{id}: Fetch a specific order
-DELETE /api/orders/{id}: Delete a specific order
-Items
-GET /api/items: Fetch all items
-POST /api/items: Create a new item
-PUT /api/items/{id}: Update an existing item
-GET /api/items/{id}: Fetch a specific item
-DELETE /api/items/{id}: Delete a specific item
-Validation
-The application uses Jakarta Validation to ensure data integrity. Here are some of the validations:  
-ItemDTO:
-name: Must not be blank
-price: Must be positive and not null
-stock: Must be positive and not null
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.use_sql_comments=true
