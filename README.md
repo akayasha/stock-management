@@ -48,6 +48,8 @@ Default credentials:
 
 Username: sa
 Password: password
+```
+
 🛠️ Build & Run
 Build the Project
 To build the project, use:
